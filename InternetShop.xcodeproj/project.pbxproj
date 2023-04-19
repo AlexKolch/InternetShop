@@ -22,6 +22,12 @@
 		FC49354E29EEDF9F00FC1428 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC49354D29EEDF9F00FC1428 /* ContactsViewController.swift */; };
 		FC49355029EEDFB400FC1428 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC49354F29EEDFB400FC1428 /* ProfileViewController.swift */; };
 		FC49355229EEDFD300FC1428 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC49355129EEDFD300FC1428 /* CartViewController.swift */; };
+		FC49355529EEEFA000FC1428 /* CategoryTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC49355429EEEFA000FC1428 /* CategoryTableViewHeader.swift */; };
+		FC49355929EFE84B00FC1428 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC49355829EFE84B00FC1428 /* MenuTableViewCell.swift */; };
+		FC49356029EFEE9500FC1428 /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC49355F29EFEE9500FC1428 /* ResponseModel.swift */; };
+		FC49356329EFEF5200FC1428 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC49356229EFEF5200FC1428 /* Category.swift */; };
+		FC49356629EFF01A00FC1428 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC49356529EFF01A00FC1428 /* NetworkManager.swift */; };
+		FC49356929EFFCBC00FC1428 /* NetworkDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC49356829EFFCBC00FC1428 /* NetworkDataFetcher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +48,12 @@
 		FC49354D29EEDF9F00FC1428 /* ContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
 		FC49354F29EEDFB400FC1428 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		FC49355129EEDFD300FC1428 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		FC49355429EEEFA000FC1428 /* CategoryTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewHeader.swift; sourceTree = "<group>"; };
+		FC49355829EFE84B00FC1428 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
+		FC49355F29EFEE9500FC1428 /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
+		FC49356229EFEF5200FC1428 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		FC49356529EFF01A00FC1428 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		FC49356829EFFCBC00FC1428 /* NetworkDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,15 +87,13 @@
 			isa = PBXGroup;
 			children = (
 				FC49354A29EED9F900FC1428 /* App */,
-				FC49353B29EED9AD00FC1428 /* Menu */,
+				FC49356429EFEFAA00FC1428 /* Services */,
+				FC49356129EFEE9A00FC1428 /* Model */,
+				FC49355A29EFEC8E00FC1428 /* Scenes */,
 				FC49352B29EED8E200FC1428 /* ViewController.swift */,
 				FC49353029EED8E300FC1428 /* Assets.xcassets */,
 				FC49353229EED8E300FC1428 /* LaunchScreen.storyboard */,
 				FC49353529EED8E300FC1428 /* Info.plist */,
-				FC49354B29EEDD9900FC1428 /* TabBarController.swift */,
-				FC49354D29EEDF9F00FC1428 /* ContactsViewController.swift */,
-				FC49354F29EEDFB400FC1428 /* ProfileViewController.swift */,
-				FC49355129EEDFD300FC1428 /* CartViewController.swift */,
 			);
 			path = InternetShop;
 			sourceTree = "<group>";
@@ -91,6 +101,8 @@
 		FC49353B29EED9AD00FC1428 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
+				FC49355829EFE84B00FC1428 /* MenuTableViewCell.swift */,
+				FC49355329EEEE5D00FC1428 /* Banner */,
 				FC49354029EED9E800FC1428 /* MenuViewController.swift */,
 				FC49354129EED9E800FC1428 /* MenuInteractor.swift */,
 				FC49353C29EED9E800FC1428 /* MenuPresenter.swift */,
@@ -108,6 +120,84 @@
 				FC49352929EED8E200FC1428 /* SceneDelegate.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		FC49355329EEEE5D00FC1428 /* Banner */ = {
+			isa = PBXGroup;
+			children = (
+				FC49355429EEEFA000FC1428 /* CategoryTableViewHeader.swift */,
+			);
+			path = Banner;
+			sourceTree = "<group>";
+		};
+		FC49355A29EFEC8E00FC1428 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				FC49355E29EFED4A00FC1428 /* TabBar */,
+				FC49353B29EED9AD00FC1428 /* Menu */,
+				FC49355B29EFECFC00FC1428 /* Contacts */,
+				FC49355D29EFED2B00FC1428 /* Cart */,
+				FC49355C29EFED0C00FC1428 /* Profile */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		FC49355B29EFECFC00FC1428 /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				FC49354D29EEDF9F00FC1428 /* ContactsViewController.swift */,
+			);
+			path = Contacts;
+			sourceTree = "<group>";
+		};
+		FC49355C29EFED0C00FC1428 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				FC49354F29EEDFB400FC1428 /* ProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		FC49355D29EFED2B00FC1428 /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				FC49355129EEDFD300FC1428 /* CartViewController.swift */,
+			);
+			path = Cart;
+			sourceTree = "<group>";
+		};
+		FC49355E29EFED4A00FC1428 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				FC49354B29EEDD9900FC1428 /* TabBarController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		FC49356129EFEE9A00FC1428 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FC49356229EFEF5200FC1428 /* Category.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FC49356429EFEFAA00FC1428 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				FC49356729EFFC6C00FC1428 /* Models */,
+				FC49356529EFF01A00FC1428 /* NetworkManager.swift */,
+				FC49356829EFFCBC00FC1428 /* NetworkDataFetcher.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		FC49356729EFFC6C00FC1428 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FC49355F29EFEE9500FC1428 /* ResponseModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,19 +270,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC49356629EFF01A00FC1428 /* NetworkManager.swift in Sources */,
 				FC49354829EED9E800FC1428 /* MenuInteractor.swift in Sources */,
 				FC49354E29EEDF9F00FC1428 /* ContactsViewController.swift in Sources */,
 				FC49352C29EED8E200FC1428 /* ViewController.swift in Sources */,
 				FC49352829EED8E200FC1428 /* AppDelegate.swift in Sources */,
 				FC49354C29EEDD9900FC1428 /* TabBarController.swift in Sources */,
 				FC49354429EED9E800FC1428 /* MenuWorker.swift in Sources */,
+				FC49356929EFFCBC00FC1428 /* NetworkDataFetcher.swift in Sources */,
 				FC49355229EEDFD300FC1428 /* CartViewController.swift in Sources */,
 				FC49355029EEDFB400FC1428 /* ProfileViewController.swift in Sources */,
 				FC49352A29EED8E200FC1428 /* SceneDelegate.swift in Sources */,
 				FC49354329EED9E800FC1428 /* MenuPresenter.swift in Sources */,
+				FC49355529EEEFA000FC1428 /* CategoryTableViewHeader.swift in Sources */,
+				FC49356329EFEF5200FC1428 /* Category.swift in Sources */,
 				FC49354629EED9E800FC1428 /* MenuModels.swift in Sources */,
 				FC49354529EED9E800FC1428 /* MenuRouter.swift in Sources */,
 				FC49354729EED9E800FC1428 /* MenuViewController.swift in Sources */,
+				FC49356029EFEE9500FC1428 /* ResponseModel.swift in Sources */,
+				FC49355929EFE84B00FC1428 /* MenuTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
