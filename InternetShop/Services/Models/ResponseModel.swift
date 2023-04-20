@@ -6,18 +6,18 @@
 //
 
 import Foundation
-/// Model для response
+/// Model для data
 struct MenuResponseWrapped: Decodable {
     let response: ResponseModel
 }
 
 struct ResponseModel: Decodable {
     let id: Int
-    let title: String
-    let price: Double
-    let description: String
-    let category: Category
     let image: URL
+    let title: String
+    let description: String
+    let price: Double
+    let category: Category
     let rating: Rating
 }
 

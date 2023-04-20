@@ -9,7 +9,7 @@
 import UIKit
 
 protocol MenuDisplayLogic: AnyObject {
-  func displayData(viewModel: Menu.Model.ViewModel.ViewModelData)
+    func displayData(viewModel: Menu.Model.ViewModel)
 }
 
 class MenuViewController: UIViewController, MenuDisplayLogic {
@@ -18,6 +18,7 @@ class MenuViewController: UIViewController, MenuDisplayLogic {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(CategoryTableViewHeader.self, forHeaderFooterViewReuseIdentifier: CategoryTableViewHeader.identifier)
+        tableView.register(MenuTableViewCell.self, forCellReuseIdentifier: MenuTableViewCell.identifier)
 
 
 
@@ -27,9 +28,12 @@ class MenuViewController: UIViewController, MenuDisplayLogic {
     var interactor: MenuBusinessLogic?
     var router: (NSObjectProtocol & MenuRoutingLogic)?
 
-    private var rows: [ItemCellViewModelProtocol] = []
+    private var activityIndicator: UIActivityIndicatorView?
+    private var rows: [MenuCellViewModelProtocol] = []
 
-  
+    private let header = CategoryTableViewHeader()
+    let currentCategory: Category = .all
+
   // MARK: Setup
   
   private func setup() {
@@ -52,20 +56,26 @@ class MenuViewController: UIViewController, MenuDisplayLogic {
   
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .systemGray6
+        view.addSubview(menuTableView)
         menuTableView.dataSource = self
         menuTableView.delegate = self
-        addSubviews()
+        activityIndicator = showActivityIndicator(in: view)
         setupConstraints()
     }
-  
-    func displayData(viewModel: Menu.Model.ViewModel.ViewModelData) {
 
+    private func showActivityIndicator(in view: UIView) -> UIActivityIndicatorView {
+        let activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator.color = .lightGray
+        activityIndicator.startAnimating()
+        activityIndicator.center = view.center
+        activityIndicator.hidesWhenStopped = true
+        view.addSubview(activityIndicator)
+        return activityIndicator
     }
+  
+    func displayData(viewModel: Menu.Model.ViewModel) {
 
-
-
-    private func addSubviews() {
-        view.addSubview(menuTableView)
     }
 
     private func setupConstraints() {
@@ -79,17 +89,26 @@ class MenuViewController: UIViewController, MenuDisplayLogic {
 }
 
 extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
+
     func numberOfSections(in tableView: UITableView) -> Int {
         2
     }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0: return 1
-        default: return
+        default: return rows.count
         }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        switch indexPath.section {
+        case 0:
+            let cell = tableView.dequeueReusableCell(withIdentifier: , for: <#T##IndexPath#>)
+        }
+    }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: CategoryTableViewHeader.identifier)
     }
 }

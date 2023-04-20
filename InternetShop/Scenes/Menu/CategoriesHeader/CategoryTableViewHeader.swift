@@ -31,7 +31,7 @@ class CategoryTableViewHeader: UITableViewHeaderFooterView {
 
     private var categoriesButtons: UIButton = {
         let button = UIButton(type: .roundedRect)
-        for categories in Menu.Category.allCases {
+        for categories in Category.allCases {
             button.translatesAutoresizingMaskIntoConstraints = false
             button.titleLabel?.font = UIFont.systemFont(ofSize: 12)
             button.setTitle(categories.rawValue, for: .normal)
