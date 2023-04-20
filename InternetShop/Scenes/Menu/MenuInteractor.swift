@@ -9,7 +9,7 @@
 import UIKit
 
 protocol MenuBusinessLogic {
-  func makeRequest(request: Menu.Model.Request.RequestType)
+    func makeRequest(request: Menu.Model.Request.RequestType)
 }
 
 class MenuInteractor: MenuBusinessLogic {
@@ -29,7 +29,7 @@ class MenuInteractor: MenuBusinessLogic {
       case .getMenu:
           fetch.getData { [weak self] menuResponse in
               guard let menuResponse = menuResponse else { return }
-              self.presenter?.presentData(response: Menu.Model.Response.ResponseType.presentMenu(menu: menuResponse))
+              self?.presenter?.presentData(response: Menu.Model.Response(response: [menuResponse]))
           }
       }
   }

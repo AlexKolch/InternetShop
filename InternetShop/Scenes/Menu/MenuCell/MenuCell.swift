@@ -7,11 +7,11 @@
 
 import UIKit
 
-class MenuTableViewCell: UITableViewCell {
+class MenuCell: UITableViewCell {
     // MARK: - Identifier
-    static let identifier = "MenuTableViewCell"
+    static let identifier = "MenuCell"
 
-    private lazy var cellImageView: WebImageManager  = {
+    private lazy var cellImageView: WebImageManager = {
         let imageView = WebImageManager()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
@@ -55,7 +55,7 @@ class MenuTableViewCell: UITableViewCell {
     }()
 
 
-    private func set(viewModel: MenuCellViewModelProtocol) {
+    func set(viewModel: MenuCellViewModelProtocol) {
        // cellImageView.image
         cellTitleLabel.text = viewModel.name
     }

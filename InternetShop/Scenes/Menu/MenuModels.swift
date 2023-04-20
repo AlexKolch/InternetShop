@@ -8,6 +8,8 @@
 
 import UIKit
 
+typealias MenuCellViewModel = Menu.Model.ViewModel.MenuCellViewModel
+
 protocol MenuCellViewModelProtocol {
     init(response: ResponseModel)
     var identifier: String { get }

@@ -17,10 +17,10 @@ class MenuViewController: UIViewController, MenuDisplayLogic {
     private var menuTableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.register(BannerTableViewCell.self, forCellReuseIdentifier: BannerTableViewCell.identifier)
         tableView.register(CategoryTableViewHeader.self, forHeaderFooterViewReuseIdentifier: CategoryTableViewHeader.identifier)
-        tableView.register(MenuTableViewCell.self, forCellReuseIdentifier: MenuTableViewCell.identifier)
-
-
+        tableView.register(MenuCell.self, forCellReuseIdentifier: MenuCell.identifier)
+        tableView.separatorStyle = .none
 
         return tableView
     }()
@@ -53,7 +53,6 @@ class MenuViewController: UIViewController, MenuDisplayLogic {
 
   
   // MARK: View lifecycle
-  
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemGray6
@@ -75,7 +74,9 @@ class MenuViewController: UIViewController, MenuDisplayLogic {
     }
   
     func displayData(viewModel: Menu.Model.ViewModel) {
-
+        rows = viewModel.rows
+        activityIndicator?.stopAnimating()
+        menuTableView.reloadData()
     }
 
     private func setupConstraints() {
@@ -104,11 +105,35 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: , for: <#T##IndexPath#>)
+            let cell = tableView.dequeueReusableCell(withIdentifier: BannerTableViewCell.identifier, for: indexPath)
+            return cell
+        default:
+            let cellViewModel = rows[indexPath.row]
+            let cell = tableView.dequeueReusableCell(withIdentifier: cellViewModel.identifier, for: indexPath)
+            guard let cell = cell as? MenuCell else { return UITableViewCell() }
+            cell.set(viewModel: cellViewModel)
+            if indexPath.item == 0, indexPath.row == 0 {
+                cell.layer.cornerRadius = 36
+                cell.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+            }
+
+            return cell
         }
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: CategoryTableViewHeader.identifier)
+        switch section {
+        case 0: return nil
+        default:
+            let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: CategoryTableViewHeader.identifier)
+            return headerView
+        }
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath.section {
+        case 0: return 100
+        default: return rows[indexPath.row].height
+        }
     }
 }
