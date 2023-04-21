@@ -8,7 +8,6 @@
 import UIKit
 
 protocol MenuCellViewModelProtocol {
-    init(response: ResponseModel)
     var identifier: String { get }
     var height: Double { get }
     var name: String { get }

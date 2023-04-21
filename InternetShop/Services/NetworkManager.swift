@@ -16,7 +16,9 @@ final class NetworkManager: Networking {
     static let shared: NetworkManager = .init()
 
     func request(url: String, completion: @escaping (Data?, Error?) -> Void) {
-        guard let url = URL(string: url) else { return }
+        guard let url = URL(string: url) else {
+            print("ERROR")
+            return }
 
         let request = URLRequest(url: url)
         let task = createDataTask(from: request, completion: completion)

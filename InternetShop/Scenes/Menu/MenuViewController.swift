@@ -29,7 +29,6 @@ class MenuViewController: UIViewController, MenuDisplayLogic {
     var router: (NSObjectProtocol & MenuRoutingLogic)?
 
     private var activityIndicator: UIActivityIndicatorView?
-   // private var rows: [MenuCellViewModelProtocol] = []
     ///Модель данных menu
     private var menuViewModel = MenuViewModel(cells: [])
 
@@ -136,10 +135,23 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
 
+    func tableView(_ tableView: UITableView,
+                   heightForHeaderInSection section: Int) -> CGFloat {
+        switch section {
+        case 0: return 0
+        default: return 50
+        }
+    }
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0: return 100
         default: return menuViewModel.cells[indexPath.row].height
         }
+    }
+
+    func tableView(_ tableView: UITableView,
+                    heightForFooterInSection section: Int) -> CGFloat {
+        return .zero
     }
 }

@@ -47,33 +47,13 @@ enum Menu {
 ///Модель с подготовленными данными меню
 struct MenuViewModel {
     struct Cell: MenuCellViewModelProtocol {
-        private let response: ResponseModel
-
-        init(response: ResponseModel) {
-            self.response = response
-        }
-
-        var identifier: String {
-            "MenuCell"
-        }
-        var height: Double {
-            150
-        }
-        var name: String {
-            response.title
-        }
-        var description: String {
-            response.description
-        }
-        var imageURL: URL {
-            response.image
-        }
-        var price: Double {
-            response.price
-        }
-        var category: String {
-            response.category.rawValue
-        }
+        var identifier: String
+        var height: Double
+        var name: String
+        var description: String
+        var imageURL: URL
+        var price: Double
+        var category: String
     }
     ///Массив с подготовленной информацией о каждой ячейки
     let cells: [Cell]
