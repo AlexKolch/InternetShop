@@ -16,22 +16,22 @@ class MenuInteractor: MenuBusinessLogic {
 
     var presenter: MenuPresentationLogic?
     var service: MenuService?
+    private var fetcher: DataFetcher = NetworkDataFetcher(networking: NetworkManager())
 
-    private var fetch: DataFetcher = NetworkDataFetcher(networking: NetworkManager())
-  
-  func makeRequest(request: Menu.Model.Request.RequestType) {
-    if service == nil {
-      service = MenuService()
+    
+    func makeRequest(request: Menu.Model.Request.RequestType) {
+        if service == nil {
+            service = MenuService()
+        }
+
+        switch request {
+        case .getMenu:
+
+            fetcher.getData { response in
+                guard let response = response else {return}
+                self.presenter?.presentData(response: Menu.Model.Response(response: [response]))
+            }
+        }
     }
-
-      switch request {
-
-      case .getMenu:
-          fetch.getData { [weak self] menuResponse in
-              guard let menuResponse = menuResponse else { return }
-              self?.presenter?.presentData(response: Menu.Model.Response(response: [menuResponse]))
-          }
-      }
-  }
-  
 }
+

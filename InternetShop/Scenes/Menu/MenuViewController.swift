@@ -21,7 +21,7 @@ class MenuViewController: UIViewController, MenuDisplayLogic {
         tableView.register(CategoryTableViewHeader.self, forHeaderFooterViewReuseIdentifier: CategoryTableViewHeader.identifier)
         tableView.register(MenuCell.self, forCellReuseIdentifier: MenuCell.identifier)
         tableView.separatorStyle = .none
-
+        tableView.backgroundColor = .systemGray6
         return tableView
     }()
 
@@ -61,6 +61,7 @@ class MenuViewController: UIViewController, MenuDisplayLogic {
         menuTableView.delegate = self
         activityIndicator = showActivityIndicator(in: view)
         setupConstraints()
+        interactor?.makeRequest(request: Menu.Model.Request.RequestType.getMenu)
     }
 
     private func showActivityIndicator(in view: UIView) -> UIActivityIndicatorView {

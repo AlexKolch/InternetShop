@@ -13,11 +13,11 @@ struct MenuResponseWrapped: Decodable {
 
 struct ResponseModel: Decodable {
     let id: Int
-    let image: URL
     let title: String
-    let description: String
     let price: Double
+    let description: String
     let category: Category
+    let image: URL
     let rating: Rating
 }
 

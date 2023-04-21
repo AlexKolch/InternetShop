@@ -26,8 +26,9 @@ struct NetworkDataFetcher: DataFetcher {
                 print("Error received requesting data: \(error.localizedDescription)")
                 response(nil)
             }
-
+//ПРОВЕРИТЬ!!!
             let decoded = self.decodeJSON(type: MenuResponseWrapped.self, from: data)
+
             response(decoded?.response)
         }
     }

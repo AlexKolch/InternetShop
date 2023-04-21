@@ -20,9 +20,9 @@ class BannerTableViewCell: UITableViewCell {
         layout.scrollDirection = .horizontal
 
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = .systemGray6
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.register(BannerCollectionViewCell.self, forCellWithReuseIdentifier: BannerCollectionViewCell.identifier)
+        collectionView.register(ImageCollectionViewCell.self, forCellWithReuseIdentifier: ImageCollectionViewCell.identifier)
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -38,7 +38,7 @@ class BannerTableViewCell: UITableViewCell {
 
 extension BannerTableViewCell {
     private func setupView() {
-        contentView.backgroundColor = .white
+        //contentView.backgroundColor = .systemGray6
         contentView.addSubview(bannersCollectionView)
     }
 
@@ -60,7 +60,7 @@ extension BannerTableViewCell: UICollectionViewDelegate, UICollectionViewDataSou
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BannerCollectionViewCell.identifier, for: indexPath) as! BannerCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCollectionViewCell.identifier, for: indexPath) as! ImageCollectionViewCell
 
         let banner = banners[indexPath.item]
         cell.updateView(with: banner)

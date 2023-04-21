@@ -31,7 +31,7 @@
 		FC49356B29F0150F00FC1428 /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC49356A29F0150F00FC1428 /* Banner.swift */; };
 		FC49356D29F03E9500FC1428 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC49356C29F03E9500FC1428 /* ImageManager.swift */; };
 		FC9533EF29F1242B009C4DDA /* BannerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9533EE29F1242B009C4DDA /* BannerTableViewCell.swift */; };
-		FC9533F129F1294A009C4DDA /* BannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9533F029F1294A009C4DDA /* BannerCollectionViewCell.swift */; };
+		FC9533F129F1294A009C4DDA /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9533F029F1294A009C4DDA /* ImageCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,7 +61,7 @@
 		FC49356A29F0150F00FC1428 /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
 		FC49356C29F03E9500FC1428 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		FC9533EE29F1242B009C4DDA /* BannerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerTableViewCell.swift; sourceTree = "<group>"; };
-		FC9533F029F1294A009C4DDA /* BannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCollectionViewCell.swift; sourceTree = "<group>"; };
+		FC9533F029F1294A009C4DDA /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,7 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				FC9533EE29F1242B009C4DDA /* BannerTableViewCell.swift */,
-				FC9533F029F1294A009C4DDA /* BannerCollectionViewCell.swift */,
+				FC9533F029F1294A009C4DDA /* ImageCollectionViewCell.swift */,
 			);
 			path = BannerCell;
 			sourceTree = "<group>";
@@ -300,7 +300,7 @@
 			files = (
 				FC49356629EFF01A00FC1428 /* NetworkManager.swift in Sources */,
 				FC49354829EED9E800FC1428 /* MenuInteractor.swift in Sources */,
-				FC9533F129F1294A009C4DDA /* BannerCollectionViewCell.swift in Sources */,
+				FC9533F129F1294A009C4DDA /* ImageCollectionViewCell.swift in Sources */,
 				FC49354E29EEDF9F00FC1428 /* ContactsViewController.swift in Sources */,
 				FC49352C29EED8E200FC1428 /* ViewController.swift in Sources */,
 				FC49356B29F0150F00FC1428 /* Banner.swift in Sources */,

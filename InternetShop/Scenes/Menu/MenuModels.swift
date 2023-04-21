@@ -22,7 +22,6 @@ protocol MenuCellViewModelProtocol {
 }
 
 enum Menu {
-
     enum Model {
 
         struct Request {
@@ -34,11 +33,10 @@ enum Menu {
         struct Response {
             let response: [ResponseModel]
         }
-        //Модель с подготовленными данными новостной ленты
+        ///Модель с подготовленными данными новостной ленты
         struct ViewModel {
             struct MenuCellViewModel: MenuCellViewModelProtocol {
                 private let response: ResponseModel
-
                 init(response: ResponseModel) {
                     self.response = response
                 }
@@ -52,24 +50,20 @@ enum Menu {
                 var name: String {
                     response.title
                 }
-
                 var description: String {
                     response.description
                 }
-
                 var imageURL: URL {
                     response.image
                 }
-
                 var price: Double {
                     response.price
                 }
-
                 var category: String {
                     response.category.rawValue
                 }
             }
-            ///Массив с информацией о каждой ячейки
+            ///Массив с подготовленной информацией о каждой ячейки
             let rows: [MenuCellViewModelProtocol]
         }
     }

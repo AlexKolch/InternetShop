@@ -12,6 +12,8 @@ class CategoryTableViewHeader: UITableViewHeaderFooterView {
     static let identifier = "HeaderID"
 
     // MARK: - Properties
+    let categories = Category.allCases
+
     private var categoriesScrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.showsVerticalScrollIndicator = false
@@ -29,22 +31,6 @@ class CategoryTableViewHeader: UITableViewHeaderFooterView {
         return stackView
     }()
 
-    private var categoriesButtons: UIButton = {
-        let button = UIButton(type: .roundedRect)
-        for categories in Category.allCases {
-            button.translatesAutoresizingMaskIntoConstraints = false
-            button.titleLabel?.font = UIFont.systemFont(ofSize: 12)
-            button.setTitle(categories.rawValue, for: .normal)
-            button.setTitleColor(UIColor(named: "customRed"), for: .normal)
-            button.contentScaleFactor = .leastNormalMagnitude
-            button.layer.borderWidth = 1
-            button.layer.borderColor = UIColor(named: "customRed")?.cgColor
-            button.layer.cornerRadius = 12
-            button.widthAnchor.constraint(equalToConstant: 120).isActive = true
-        }
-        return button
-    }()
-
     override init(reuseIdentifier: String?) {
         super .init(reuseIdentifier: reuseIdentifier)
         setupView()
@@ -55,12 +41,44 @@ class CategoryTableViewHeader: UITableViewHeaderFooterView {
         fatalError("init(coder:) has not been implemented")
     }
 
+    func selectButton(button: UIButton) {
+        guard let buttons = categoriesStackView.arrangedSubviews as? [UIButton] else { return }
+        for button in buttons {
+            setNormal(button: button)
+        }
+        setSelected(button: button)
+    }
+
+    func setSelected(button: UIButton) {
+        button.backgroundColor = UIColor(named: "customPink")
+    }
+
+    func setNormal(button: UIButton) {
+        button.backgroundColor = .clear
+    }
+
 
     private func setupView() {
         contentView.backgroundColor = .systemGray6
         addSubview(categoriesScrollView)
         categoriesScrollView.addSubview(categoriesStackView)
-        categoriesStackView.addArrangedSubview(categoriesButtons)
+        addButtons()
+    }
+
+    private func addButtons() {
+        for categories in Category.allCases {
+            let button = UIButton(type: .roundedRect)
+            button.translatesAutoresizingMaskIntoConstraints = false
+            button.titleLabel?.font = UIFont.systemFont(ofSize: 12)
+            button.setTitle(categories.rawValue, for: .normal)
+            button.setTitleColor(UIColor(named: "customRed"), for: .normal)
+            button.contentScaleFactor = .leastNormalMagnitude
+            button.layer.borderWidth = 1
+            button.layer.borderColor = UIColor(named: "customRed")?.cgColor
+            button.layer.cornerRadius = 12
+            button.widthAnchor.constraint(equalToConstant: 120).isActive = true
+            categoriesStackView.addArrangedSubview(button)
+        }
     }
 
     private func setupConstraints() {
