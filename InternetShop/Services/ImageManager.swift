@@ -7,37 +7,28 @@
 
 import UIKit
 
-final class WebImageManager: UIImageView {
-    /// Синглтон для работы с изображениями
-static let shared: WebImageManager = .init()
+/// Синглтон для работы с изображениями
+final class ImageManager {
 
-    /// Получить изображение и закэшировать
-    func set(imageUrl: String) {
-        guard let url = URL(string: imageUrl) else {return}
+    static let shared: ImageManager = .init()
 
-        if let cashedResponse = URLCache.shared.cachedResponse(for: URLRequest(url: url)) {
-            self.image = UIImage(data: cashedResponse.data)
+    /// Получить изображение
+    func fetchImage(from url: URL?,
+                    completion: @escaping (Result<Data, NetworkError>) -> Void) {
+        guard let url = url else {
+            completion(.failure(.invalidURL))
+            print(NetworkError.invalidURL.rawValue)
             return
         }
-
-
-        let dataTask = URLSession.shared.dataTask(with: url) { [weak self] (data, response, error) in
+        DispatchQueue.global(qos: .utility).async {
+            guard let imageData = try? Data(contentsOf: url) else {
+                completion(.failure(.noData))
+                print(NetworkError.noData.rawValue)
+                return
+            }
             DispatchQueue.main.async {
-                if let data = data, let response = response {
-                    self?.image = UIImage(data: data)
-                    self?.cashLoadedImage(data: data, response: response)
-                }
+                completion(.success(imageData))
             }
         }
-        dataTask.resume()
-    }
-
-    ///Создание кэша
-    private func cashLoadedImage(data: Data, response: URLResponse) {
-        guard let responseURL = response.url else {return}
-
-        let cashedResponse = CachedURLResponse(response: response, data: data)
-
-        URLCache.shared.storeCachedResponse(cashedResponse, for: URLRequest(url: responseURL))
     }
 }

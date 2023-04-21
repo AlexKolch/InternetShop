@@ -16,7 +16,8 @@ class MenuInteractor: MenuBusinessLogic {
 
     var presenter: MenuPresentationLogic?
     var service: MenuService?
-    private var fetcher: DataFetcher = NetworkDataFetcher(networking: NetworkManager())
+    var items: [ResponseModel] = []
+  //  private var fetcher: DataFetcher = NetworkDataFetcher(networking: NetworkManager())
 
     
     func makeRequest(request: Menu.Model.Request.RequestType) {
@@ -26,10 +27,15 @@ class MenuInteractor: MenuBusinessLogic {
 
         switch request {
         case .getMenu:
-
-            fetcher.getData { response in
-                guard let response = response else {return}
-                self.presenter?.presentData(response: Menu.Model.Response(response: [response]))
+            NetworkManager.shared.fetchData([ResponseModel].self, from: Link.fakeDataProducts.rawValue) { [weak self] result in
+                switch result {
+                case .success(let items):
+                    self?.items = items
+                    let response = Menu.Model.Response(response: items)
+                    self?.presenter?.presentData(response: response)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
             }
         }
     }

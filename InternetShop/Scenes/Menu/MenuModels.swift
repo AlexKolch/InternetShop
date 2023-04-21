@@ -11,7 +11,6 @@ import UIKit
 typealias MenuCellViewModel = Menu.Model.ViewModel.MenuCellViewModel
 
 protocol MenuCellViewModelProtocol {
-    init(response: ResponseModel)
     var identifier: String { get }
     var height: Double { get }
     var name: String { get }
@@ -19,6 +18,7 @@ protocol MenuCellViewModelProtocol {
     var imageURL: URL { get }
     var price: Double { get }
     var category: String { get }
+    init(response: ResponseModel)
 }
 
 enum Menu {
@@ -33,19 +33,18 @@ enum Menu {
         struct Response {
             let response: [ResponseModel]
         }
-        ///Модель с подготовленными данными новостной ленты
+        
+        ///Модель с подготовленными данными ленты
         struct ViewModel {
             struct MenuCellViewModel: MenuCellViewModelProtocol {
-                private let response: ResponseModel
-                init(response: ResponseModel) {
-                    self.response = response
-                }
-
                 var identifier: String {
-                    "ItemCell"
+                    "MenuCell"
                 }
                 var height: Double {
                     150
+                }
+                var price: Double {
+                    response.price
                 }
                 var name: String {
                     response.title
@@ -56,11 +55,13 @@ enum Menu {
                 var imageURL: URL {
                     response.image
                 }
-                var price: Double {
-                    response.price
-                }
                 var category: String {
                     response.category.rawValue
+                }
+                private let response: ResponseModel
+
+                init(response: ResponseModel) {
+                    self.response = response
                 }
             }
             ///Массив с подготовленной информацией о каждой ячейки

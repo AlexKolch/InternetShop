@@ -70,7 +70,7 @@ class CategoryTableViewHeader: UITableViewHeaderFooterView {
             let button = UIButton(type: .roundedRect)
             button.translatesAutoresizingMaskIntoConstraints = false
             button.titleLabel?.font = UIFont.systemFont(ofSize: 12)
-            button.setTitle(categories.rawValue, for: .normal)
+            button.setTitle(categories.rawValue.capitalized, for: .normal)
             button.setTitleColor(UIColor(named: "customRed"), for: .normal)
             button.contentScaleFactor = .leastNormalMagnitude
             button.layer.borderWidth = 1

@@ -32,6 +32,7 @@
 		FC49356D29F03E9500FC1428 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC49356C29F03E9500FC1428 /* ImageManager.swift */; };
 		FC9533EF29F1242B009C4DDA /* BannerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9533EE29F1242B009C4DDA /* BannerTableViewCell.swift */; };
 		FC9533F129F1294A009C4DDA /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9533F029F1294A009C4DDA /* ImageCollectionViewCell.swift */; };
+		FCD9552A29F29E2900BF1FCC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD9552929F29E2900BF1FCC /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		FC49356C29F03E9500FC1428 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		FC9533EE29F1242B009C4DDA /* BannerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerTableViewCell.swift; sourceTree = "<group>"; };
 		FC9533F029F1294A009C4DDA /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		FCD9552929F29E2900BF1FCC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +98,6 @@
 			children = (
 				FC49354A29EED9F900FC1428 /* App */,
 				FC49356429EFEFAA00FC1428 /* Services */,
-				FC49356129EFEE9A00FC1428 /* Model */,
 				FC49355A29EFEC8E00FC1428 /* Scenes */,
 				FC49352B29EED8E200FC1428 /* ViewController.swift */,
 				FC49353029EED8E300FC1428 /* Assets.xcassets */,
@@ -183,20 +184,12 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
-		FC49356129EFEE9A00FC1428 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				FC49356229EFEF5200FC1428 /* Category.swift */,
-				FC49356A29F0150F00FC1428 /* Banner.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		FC49356429EFEFAA00FC1428 /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				FC49356729EFFC6C00FC1428 /* Models */,
 				FC49356529EFF01A00FC1428 /* NetworkManager.swift */,
+				FCD9552929F29E2900BF1FCC /* Constants.swift */,
 				FC49356829EFFCBC00FC1428 /* NetworkDataFetcher.swift */,
 				FC49356C29F03E9500FC1428 /* ImageManager.swift */,
 			);
@@ -207,6 +200,8 @@
 			isa = PBXGroup;
 			children = (
 				FC49355F29EFEE9500FC1428 /* ResponseModel.swift */,
+				FC49356229EFEF5200FC1428 /* Category.swift */,
+				FC49356A29F0150F00FC1428 /* Banner.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -321,6 +316,7 @@
 				FC49354729EED9E800FC1428 /* MenuViewController.swift in Sources */,
 				FC49356029EFEE9500FC1428 /* ResponseModel.swift in Sources */,
 				FC49355929EFE84B00FC1428 /* MenuCell.swift in Sources */,
+				FCD9552A29F29E2900BF1FCC /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

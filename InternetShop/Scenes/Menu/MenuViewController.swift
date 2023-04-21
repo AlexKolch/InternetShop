@@ -112,7 +112,7 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
             let cellViewModel = rows[indexPath.row]
             let cell = tableView.dequeueReusableCell(withIdentifier: cellViewModel.identifier, for: indexPath)
             guard let cell = cell as? MenuCell else { return UITableViewCell() }
-            cell.set(viewModel: cellViewModel)
+            cell.viewModel = cellViewModel
             if indexPath.item == 0, indexPath.row == 0 {
                 cell.layer.cornerRadius = 36
                 cell.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
