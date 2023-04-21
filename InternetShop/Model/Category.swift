@@ -8,7 +8,9 @@
 import Foundation
 
 enum Category: String, Codable, CaseIterable {
-    case all = "All"
-    case mensClothing = "Men's clothing"
-    case womensClothing = "Women's clothing"
+    case all = "all"
+    case electronics = "electronics"
+    case jewelry = "jewelery"
+    case mensClothing = "men's clothing"
+    case womensClothing = "women's clothing"
 }

@@ -13,7 +13,7 @@ protocol MenuDisplayLogic: AnyObject {
 }
 
 class MenuViewController: UIViewController, MenuDisplayLogic {
-
+    // MARK: - Properties
     private var menuTableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -32,12 +32,10 @@ class MenuViewController: UIViewController, MenuDisplayLogic {
     ///Модель данных menu
     private var menuViewModel = MenuViewModel(cells: [])
 
-
     private let header = CategoryTableViewHeader()
     let currentCategory: Category = .all
 
   // MARK: Setup
-  
   private func setup() {
     let viewController        = self
     let interactor            = MenuInteractor()
@@ -63,7 +61,17 @@ class MenuViewController: UIViewController, MenuDisplayLogic {
         menuTableView.delegate = self
         activityIndicator = showActivityIndicator(in: view)
         setupConstraints()
+        setupNavigationBar()
         interactor?.makeRequest(request: Menu.Model.Request.RequestType.getMenu)
+    }
+    // MARK: - Method
+    func displayData(viewModel: Menu.Model.ViewModel.ViewModelData) {
+        switch viewModel {
+        case .displayMenu(menuViewModel: let menuViewModel):
+            self.menuViewModel = menuViewModel
+            activityIndicator?.stopAnimating()
+            menuTableView.reloadData()
+        }
     }
 
     private func showActivityIndicator(in view: UIView) -> UIActivityIndicatorView {
@@ -75,14 +83,22 @@ class MenuViewController: UIViewController, MenuDisplayLogic {
         view.addSubview(activityIndicator)
         return activityIndicator
     }
-  
-    func displayData(viewModel: Menu.Model.ViewModel.ViewModelData) {
-        switch viewModel {
-        case .displayMenu(menuViewModel: let menuViewModel):
-            self.menuViewModel = menuViewModel
-            activityIndicator?.stopAnimating()
-            menuTableView.reloadData()
-        }
+
+    // MARK: - Main View Setup
+    private func setupNavigationBar() {
+        let navBarAppearance = UINavigationBarAppearance()
+        navBarAppearance.configureWithOpaqueBackground()
+        navBarAppearance.backgroundColor = .systemGray6
+        let title = UIBarButtonItem(title: "Moscow")
+        let image = UIBarButtonItem(title: "", image: UIImage(systemName: "chevron.down"), target: self, action: #selector(switchCity))
+        navigationItem.leftBarButtonItems = [title, image]
+        navigationController?.navigationBar.standardAppearance = navBarAppearance
+        navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
+        navigationController?.navigationBar.tintColor = .black
+    }
+
+    @objc func switchCity() {
+
     }
 
     private func setupConstraints() {
@@ -94,7 +110,7 @@ class MenuViewController: UIViewController, MenuDisplayLogic {
         ])
     }
 }
-
+// MARK: - UITableViewDelegate UITableViewDataSource
 extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -147,6 +163,16 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.section {
         case 0: return 100
         default: return menuViewModel.cells[indexPath.row].height
+        }
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.section {
+        case 0:
+            tableView.deselectRow(at: indexPath, animated: true)
+        default:
+            tableView.deselectRow(at: indexPath, animated: true)
+            
         }
     }
 
