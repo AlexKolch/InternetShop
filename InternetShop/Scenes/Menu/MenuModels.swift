@@ -8,18 +8,18 @@
 
 import UIKit
 
-typealias MenuCellViewModel = Menu.Model.ViewModel.MenuCellViewModel
+typealias MenuCellViewModel = Menu.Model.ViewModel.ViewModelData
 
-protocol MenuCellViewModelProtocol {
-    init(response: ResponseModel)
-    var identifier: String { get }
-    var height: Double { get }
-    var name: String { get }
-    var description: String { get }
-    var imageURL: URL { get }
-    var price: Double { get }
-    var category: String { get }
-}
+//protocol MenuCellViewModelProtocol {
+//    init(response: ResponseModel)
+//    var identifier: String { get }
+//    var height: Double { get }
+//    var name: String { get }
+//    var description: String { get }
+//    var imageURL: URL { get }
+//    var price: Double { get }
+//    var category: String { get }
+//}
 
 enum Menu {
     enum Model {
@@ -31,40 +31,50 @@ enum Menu {
         }
 
         struct Response {
-            let response: [ResponseModel]
-        }
-        ///Модель с подготовленными данными новостной ленты
-        struct ViewModel {
-            struct MenuCellViewModel: MenuCellViewModelProtocol {
-                private let response: ResponseModel
-                init(response: ResponseModel) {
-                    self.response = response
-                }
-
-                var identifier: String {
-                    "MenuCell"
-                }
-                var height: Double {
-                    150
-                }
-                var name: String {
-                    response.title
-                }
-                var description: String {
-                    response.description
-                }
-                var imageURL: URL {
-                    response.image
-                }
-                var price: Double {
-                    response.price
-                }
-                var category: String {
-                    response.category.rawValue
-                }
+            enum ResponseType {
+                case presentResponse(response: [ResponseModel])
             }
-            ///Массив с подготовленной информацией о каждой ячейки
-            let rows: [MenuCellViewModelProtocol]
+        }
+
+        struct ViewModel {
+            enum ViewModelData {
+                case displayMenu(menuViewModel: MenuViewModel)
+            }
         }
     }
+}
+
+///Модель с подготовленными данными меню
+struct MenuViewModel {
+    struct Cell: MenuCellViewModelProtocol {
+        private let response: ResponseModel
+
+        init(response: ResponseModel) {
+            self.response = response
+        }
+
+        var identifier: String {
+            "MenuCell"
+        }
+        var height: Double {
+            150
+        }
+        var name: String {
+            response.title
+        }
+        var description: String {
+            response.description
+        }
+        var imageURL: URL {
+            response.image
+        }
+        var price: Double {
+            response.price
+        }
+        var category: String {
+            response.category.rawValue
+        }
+    }
+    ///Массив с подготовленной информацией о каждой ячейки
+    let cells: [Cell]
 }

@@ -12,9 +12,9 @@ final class WebImageManager: UIImageView {
 static let shared: WebImageManager = .init()
 
     /// Получить изображение и закэшировать
-    func set(imageUrl: String) {
-        guard let url = URL(string: imageUrl) else {return}
-
+    func set(url: URL?) {
+       // guard let url = URL(string: imageUrl) else {return}
+        guard let url = url else {return}
         if let cashedResponse = URLCache.shared.cachedResponse(for: URLRequest(url: url)) {
             self.image = UIImage(data: cashedResponse.data)
             return

@@ -9,17 +9,24 @@
 import UIKit
 
 protocol MenuPresentationLogic {
-    func presentData(response: Menu.Model.Response)
+    func presentData(response: Menu.Model.Response.ResponseType)
 }
 
 class MenuPresenter: MenuPresentationLogic {
     weak var viewController: MenuDisplayLogic?
 
-    func presentData(response: Menu.Model.Response) {
+    func presentData(response: Menu.Model.Response.ResponseType) {
+        switch response {
+        case .presentResponse(let menu):
+            let cells = menu.map { responseItem in
+                cellViewModel(from: responseItem)
+            }
+            let menuViewModel = MenuViewModel(cells: cells)
+            viewController?.displayData(viewModel: MenuCellViewModel.displayMenu(menuViewModel: menuViewModel))
+        }
+    }
 
-        let row: [MenuCellViewModelProtocol] = response.response.map { MenuCellViewModel(response: $0) }
-
-        let viewModel = Menu.Model.ViewModel(rows: row)
-        viewController?.displayData(viewModel: viewModel)
+    private func cellViewModel(from responseModel: ResponseModel) -> MenuViewModel.Cell {
+        return MenuViewModel.Cell(response: responseModel)
     }
 }

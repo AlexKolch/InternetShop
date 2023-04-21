@@ -9,7 +9,7 @@
 import UIKit
 
 protocol MenuDisplayLogic: AnyObject {
-    func displayData(viewModel: Menu.Model.ViewModel)
+    func displayData(viewModel: Menu.Model.ViewModel.ViewModelData)
 }
 
 class MenuViewController: UIViewController, MenuDisplayLogic {
@@ -29,7 +29,10 @@ class MenuViewController: UIViewController, MenuDisplayLogic {
     var router: (NSObjectProtocol & MenuRoutingLogic)?
 
     private var activityIndicator: UIActivityIndicatorView?
-    private var rows: [MenuCellViewModelProtocol] = []
+   // private var rows: [MenuCellViewModelProtocol] = []
+    ///Модель данных menu
+    private var menuViewModel = MenuViewModel(cells: [])
+
 
     private let header = CategoryTableViewHeader()
     let currentCategory: Category = .all
@@ -74,10 +77,13 @@ class MenuViewController: UIViewController, MenuDisplayLogic {
         return activityIndicator
     }
   
-    func displayData(viewModel: Menu.Model.ViewModel) {
-        rows = viewModel.rows
-        activityIndicator?.stopAnimating()
-        menuTableView.reloadData()
+    func displayData(viewModel: Menu.Model.ViewModel.ViewModelData) {
+        switch viewModel {
+        case .displayMenu(menuViewModel: let menuViewModel):
+            self.menuViewModel = menuViewModel
+            activityIndicator?.stopAnimating()
+            menuTableView.reloadData()
+        }
     }
 
     private func setupConstraints() {
@@ -99,7 +105,7 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0: return 1
-        default: return rows.count
+        default: return menuViewModel.cells.count
         }
     }
 
@@ -109,7 +115,7 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: BannerTableViewCell.identifier, for: indexPath)
             return cell
         default:
-            let cellViewModel = rows[indexPath.row]
+            let cellViewModel = menuViewModel.cells[indexPath.row]
             let cell = tableView.dequeueReusableCell(withIdentifier: cellViewModel.identifier, for: indexPath)
             guard let cell = cell as? MenuCell else { return UITableViewCell() }
             cell.set(viewModel: cellViewModel)
@@ -117,7 +123,6 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.layer.cornerRadius = 36
                 cell.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
             }
-
             return cell
         }
     }
@@ -134,7 +139,7 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0: return 100
-        default: return rows[indexPath.row].height
+        default: return menuViewModel.cells[indexPath.row].height
         }
     }
 }

@@ -26,10 +26,9 @@ class MenuInteractor: MenuBusinessLogic {
 
         switch request {
         case .getMenu:
-
             fetcher.getData { response in
                 guard let response = response else {return}
-                self.presenter?.presentData(response: Menu.Model.Response(response: [response]))
+                self.presenter?.presentData(response: Menu.Model.Response.ResponseType.presentResponse(response: [response]))
             }
         }
     }

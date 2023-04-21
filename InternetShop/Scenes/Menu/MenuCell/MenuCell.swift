@@ -7,7 +7,16 @@
 
 import UIKit
 
-
+protocol MenuCellViewModelProtocol {
+    init(response: ResponseModel)
+    var identifier: String { get }
+    var height: Double { get }
+    var name: String { get }
+    var description: String { get }
+    var imageURL: URL { get }
+    var price: Double { get }
+    var category: String { get }
+}
 
 class MenuCell: UITableViewCell {
     // MARK: - Identifier
@@ -56,10 +65,13 @@ class MenuCell: UITableViewCell {
         return button
     }()
 
-
     func set(viewModel: MenuCellViewModelProtocol) {
-       // cellImageView.image
+        cellImageView.set(url: viewModel.imageURL)
         cellTitleLabel.text = viewModel.name
+        cellDescriptionLabel.text = viewModel.description
+        cellPriceButton.setTitle("\(viewModel.price)", for: .normal)
+        addSubviews()
+        setupConstraints()
     }
 
     private func addSubviews() {
