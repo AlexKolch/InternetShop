@@ -26,6 +26,7 @@ class MenuPresenter: MenuPresentationLogic {
         }
     }
 
+
     private func cellViewModel(from responseModel: ResponseModel) -> MenuViewModel.Cell {
         return MenuViewModel.Cell(response: responseModel)
     }
