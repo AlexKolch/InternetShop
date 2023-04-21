@@ -8,7 +8,7 @@
 import Foundation
 
 protocol DataFetcher {
-    func getData(response: @escaping ([ResponseModel]?) -> Void)
+    func getData(response: @escaping ([WelcomeElement]?) -> Void)
 }
 
 struct NetworkDataFetcher: DataFetcher {
@@ -20,14 +20,14 @@ struct NetworkDataFetcher: DataFetcher {
     }
 
     /// Получить данные
-    func getData(response: @escaping ([ResponseModel]?) -> Void) {
+    func getData(response: @escaping ([WelcomeElement]?) -> Void) {
         networking.request(url: urlString) { data, error in
             if let error = error {
                 print("Error received requesting data: \(error.localizedDescription)")
                 response(nil)
             }
 //ПРОВЕРИТЬ!!!
-            let decoded = self.decodeJSON(type: [ResponseModel].self, from: data)
+            let decoded = self.decodeJSON(type: [WelcomeElement].self, from: data)
 
             response(decoded)
         }

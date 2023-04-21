@@ -27,7 +27,7 @@ class MenuPresenter: MenuPresentationLogic {
     }
 
 
-    private func cellViewModel(from responseModel: ResponseModel) -> MenuViewModel.Cell {
+    private func cellViewModel(from responseModel: WelcomeElement) -> MenuViewModel.Cell {
         return MenuViewModel.Cell(identifier: String(responseModel.id), height: 150, name: responseModel.title, description: responseModel.description, imageURL: responseModel.image, price: responseModel.price, category: responseModel.category.rawValue)
     }
 }

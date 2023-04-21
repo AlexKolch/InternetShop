@@ -12,7 +12,7 @@ protocol MenuCellViewModelProtocol {
     var height: Double { get }
     var name: String { get }
     var description: String { get }
-    var imageURL: URL { get }
+    var imageURL: String { get }
     var price: Double { get }
     var category: String { get }
 }
@@ -65,7 +65,7 @@ class MenuCell: UITableViewCell {
     }()
 
     func set(viewModel: MenuCellViewModelProtocol) {
-        cellImageView.set(url: viewModel.imageURL)
+        cellImageView.set(imageUrl: viewModel.imageURL)
         cellTitleLabel.text = viewModel.name
         cellDescriptionLabel.text = viewModel.description
         cellPriceButton.setTitle("\(viewModel.price)", for: .normal)

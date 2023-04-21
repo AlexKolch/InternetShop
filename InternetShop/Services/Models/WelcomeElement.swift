@@ -6,18 +6,14 @@
 //
 
 import Foundation
-/// Model для data
-struct MenuResponseWrapped: Decodable {
-    let response: ResponseModel
-}
 
-struct ResponseModel: Decodable {
+struct WelcomeElement: Codable {
     let id: Int
     let title: String
     let price: Double
     let description: String
     let category: Category
-    let image: URL
+    let image: String
     let rating: Rating
 }
 

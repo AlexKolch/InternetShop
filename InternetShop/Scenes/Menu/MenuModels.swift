@@ -32,7 +32,7 @@ enum Menu {
 
         struct Response {
             enum ResponseType {
-                case presentResponse(response: [ResponseModel])
+                case presentResponse(response: [WelcomeElement])
             }
         }
 
@@ -51,7 +51,7 @@ struct MenuViewModel {
         var height: Double
         var name: String
         var description: String
-        var imageURL: URL
+        var imageURL: String
         var price: Double
         var category: String
     }
