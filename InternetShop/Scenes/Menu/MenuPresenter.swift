@@ -17,9 +17,9 @@ class MenuPresenter: MenuPresentationLogic {
 
     func presentData(response: Menu.Model.Response) {
 
-        let rows: [MenuCellViewModelProtocol] = response.response.map { MenuCellViewModel(response: $0) }
+        let row: [MenuCellViewModelProtocol] = response.response.map { MenuCellViewModel(response: $0) }
 
-        let viewModel = Menu.Model.ViewModel(rows: rows)
+        let viewModel = Menu.Model.ViewModel(rows: row)
         viewController?.displayData(viewModel: viewModel)
     }
 }

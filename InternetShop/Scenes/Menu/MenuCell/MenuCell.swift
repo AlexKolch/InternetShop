@@ -7,6 +7,8 @@
 
 import UIKit
 
+
+
 class MenuCell: UITableViewCell {
     // MARK: - Identifier
     static let identifier = "MenuCell"
@@ -18,7 +20,7 @@ class MenuCell: UITableViewCell {
         return imageView
     }()
 
-    private lazy var activityIndicatorView: UIActivityIndicatorView = {
+    private lazy var activityIndicator: UIActivityIndicatorView = {
         let activityIndicatorView = UIActivityIndicatorView()
         activityIndicatorView.translatesAutoresizingMaskIntoConstraints = false
         activityIndicatorView.hidesWhenStopped = true
@@ -59,6 +61,36 @@ class MenuCell: UITableViewCell {
        // cellImageView.image
         cellTitleLabel.text = viewModel.name
     }
-    
 
+    private func addSubviews() {
+        addSubview(cellImageView)
+        cellImageView.addSubview(activityIndicator)
+        addSubview(cellTitleLabel)
+        addSubview(cellDescriptionLabel)
+        addSubview(cellPriceButton)
+    }
+
+    private func setupConstraints() {
+        NSLayoutConstraint.activate([
+            cellImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
+            cellImageView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            cellImageView.widthAnchor.constraint(equalToConstant: 100),
+            cellImageView.heightAnchor.constraint(equalToConstant: 100),
+
+            activityIndicator.centerXAnchor.constraint(equalTo: cellImageView.centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: cellImageView.centerYAnchor),
+
+            cellTitleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
+            cellTitleLabel.leadingAnchor.constraint(equalTo: cellImageView.trailingAnchor, constant: 16),
+            cellTitleLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
+
+            cellDescriptionLabel.topAnchor.constraint(equalTo: cellTitleLabel.bottomAnchor, constant: 6),
+            cellDescriptionLabel.leadingAnchor.constraint(equalTo: cellImageView.trailingAnchor, constant: 16),
+            cellDescriptionLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
+
+            cellPriceButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -16),
+            cellPriceButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            cellPriceButton.widthAnchor.constraint(equalToConstant: 70),
+        ])
+    }
 }
