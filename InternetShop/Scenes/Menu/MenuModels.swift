@@ -36,7 +36,7 @@ enum Menu {
 ///Модель с подготовленными данными меню
 struct MenuViewModel {
     struct Cell: MenuCellViewModelProtocol {
-        var identifier: String
+        var identifier: String 
         var height: Double
         var name: String
         var description: String

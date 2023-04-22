@@ -28,7 +28,7 @@ class MenuPresenter: MenuPresentationLogic {
 
 
     private func configureCellViewModel(from response: MenuItem) -> MenuViewModel.Cell {
-        return MenuViewModel.Cell(identifier: String(response.id),
+        return MenuViewModel.Cell(identifier: "MenuCell",
                                   height: 150,
                                   name: response.title,
                                   description: response.description,

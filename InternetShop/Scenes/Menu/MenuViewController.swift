@@ -14,13 +14,15 @@ protocol MenuDisplayLogic: AnyObject {
 
 class MenuViewController: UIViewController, MenuDisplayLogic {
     // MARK: - Properties
-    private var menuTableView: UITableView = {
+    private lazy var menuTableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(BannerTableViewCell.self, forCellReuseIdentifier: BannerTableViewCell.identifier)
         tableView.register(CategoryTableViewHeader.self, forHeaderFooterViewReuseIdentifier: CategoryTableViewHeader.identifier)
         tableView.register(MenuCell.self, forCellReuseIdentifier: MenuCell.identifier)
-        tableView.separatorStyle = .none
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.separatorStyle = .singleLine
         tableView.backgroundColor = .systemGray6
         return tableView
     }()
@@ -55,11 +57,8 @@ class MenuViewController: UIViewController, MenuDisplayLogic {
   // MARK: View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemGray6
         view.addSubview(menuTableView)
-        menuTableView.dataSource = self
-        menuTableView.delegate = self
-        activityIndicator = showActivityIndicator(in: view)
+        //activityIndicator = showActivityIndicator(in: view)
         setupConstraints()
         setupNavigationBar()
         interactor?.makeRequest(request: Menu.Model.Request.RequestType.getMenu)
