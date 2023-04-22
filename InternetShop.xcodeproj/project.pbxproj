@@ -27,7 +27,6 @@
 		FC49356029EFEE9500FC1428 /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC49355F29EFEE9500FC1428 /* ResponseModel.swift */; };
 		FC49356329EFEF5200FC1428 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC49356229EFEF5200FC1428 /* Category.swift */; };
 		FC49356629EFF01A00FC1428 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC49356529EFF01A00FC1428 /* NetworkManager.swift */; };
-		FC49356929EFFCBC00FC1428 /* NetworkDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC49356829EFFCBC00FC1428 /* NetworkDataFetcher.swift */; };
 		FC49356B29F0150F00FC1428 /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC49356A29F0150F00FC1428 /* Banner.swift */; };
 		FC49356D29F03E9500FC1428 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC49356C29F03E9500FC1428 /* ImageManager.swift */; };
 		FC9533EF29F1242B009C4DDA /* BannerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9533EE29F1242B009C4DDA /* BannerTableViewCell.swift */; };
@@ -58,7 +57,6 @@
 		FC49355F29EFEE9500FC1428 /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
 		FC49356229EFEF5200FC1428 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		FC49356529EFF01A00FC1428 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		FC49356829EFFCBC00FC1428 /* NetworkDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcher.swift; sourceTree = "<group>"; };
 		FC49356A29F0150F00FC1428 /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
 		FC49356C29F03E9500FC1428 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		FC9533EE29F1242B009C4DDA /* BannerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerTableViewCell.swift; sourceTree = "<group>"; };
@@ -190,7 +188,6 @@
 				FC49356729EFFC6C00FC1428 /* Models */,
 				FC49356529EFF01A00FC1428 /* NetworkManager.swift */,
 				FCD9552929F29E2900BF1FCC /* Constants.swift */,
-				FC49356829EFFCBC00FC1428 /* NetworkDataFetcher.swift */,
 				FC49356C29F03E9500FC1428 /* ImageManager.swift */,
 			);
 			path = Services;
@@ -302,7 +299,6 @@
 				FC49352829EED8E200FC1428 /* AppDelegate.swift in Sources */,
 				FC49354C29EEDD9900FC1428 /* TabBarController.swift in Sources */,
 				FC49354429EED9E800FC1428 /* MenuWorker.swift in Sources */,
-				FC49356929EFFCBC00FC1428 /* NetworkDataFetcher.swift in Sources */,
 				FC49356D29F03E9500FC1428 /* ImageManager.swift in Sources */,
 				FC49355229EEDFD300FC1428 /* CartViewController.swift in Sources */,
 				FC9533EF29F1242B009C4DDA /* BannerTableViewCell.swift in Sources */,

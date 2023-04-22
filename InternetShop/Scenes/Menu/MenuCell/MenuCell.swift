@@ -70,7 +70,7 @@ class MenuCell: UITableViewCell, CellModelRepresentable {
     }
 
 
-    func setView() {
+    private func setView() {
         guard let viewModel = viewModel as? MenuCellViewModel else {return}
 
         ImageManager.shared.fetchImage(from: viewModel.imageURL) { [weak self] result in

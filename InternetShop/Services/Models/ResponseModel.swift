@@ -6,10 +6,7 @@
 //
 
 import Foundation
-/// Model для data
-//struct MenuResponseWrapped: Decodable {
-//    let response: ResponseModel
-//}
+
 
 struct ResponseModel: Decodable {
     let id: Int

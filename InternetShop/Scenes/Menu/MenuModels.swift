@@ -24,12 +24,6 @@ protocol MenuCellViewModelProtocol {
 enum Menu {
     enum Model {
 
-        struct Request {
-            enum RequestType {
-                case getMenu
-            }
-        }
-
         struct Response {
             let response: [ResponseModel]
         }

@@ -52,11 +52,13 @@ final class NetworkManager {
                 print(error?.localizedDescription ?? "No Error Description")
                 return
             }
+
             do {
                 let type = try JSONDecoder().decode(T.self, from: data)
                 DispatchQueue.main.async {
                     completion(.success(type))
                 }
+               // print("JSONDecoder")
             } catch let error {
                 print(error.localizedDescription)
             }

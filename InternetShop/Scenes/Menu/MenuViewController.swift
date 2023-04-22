@@ -22,6 +22,7 @@ class MenuViewController: UIViewController, MenuDisplayLogic {
         tableView.register(MenuCell.self, forCellReuseIdentifier: MenuCell.identifier)
         tableView.separatorStyle = .none
         tableView.backgroundColor = .systemGray6
+     
         return tableView
     }()
 
@@ -55,13 +56,12 @@ class MenuViewController: UIViewController, MenuDisplayLogic {
   // MARK: View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemGray6
         view.addSubview(menuTableView)
         menuTableView.dataSource = self
         menuTableView.delegate = self
         activityIndicator = showActivityIndicator(in: view)
         setupConstraints()
-        interactor?.makeRequest(request: Menu.Model.Request.RequestType.getMenu)
+        interactor?.fetchItems()
     }
 
     private func showActivityIndicator(in view: UIView) -> UIActivityIndicatorView {

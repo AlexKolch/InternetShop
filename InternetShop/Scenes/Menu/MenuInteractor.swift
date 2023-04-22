@@ -6,36 +6,32 @@
 //  Copyright (c) 2023 ___ORGANIZATIONNAME___. All rights reserved.
 //
 
-import UIKit
 
 protocol MenuBusinessLogic {
-    func makeRequest(request: Menu.Model.Request.RequestType)
+    func fetchItems()
 }
 
-class MenuInteractor: MenuBusinessLogic {
+protocol MenuDataStore {
+    var items: [ResponseModel] { get }
+
+}
+
+class MenuInteractor: MenuBusinessLogic, MenuDataStore {
 
     var presenter: MenuPresentationLogic?
-    var service: MenuService?
     var items: [ResponseModel] = []
-  //  private var fetcher: DataFetcher = NetworkDataFetcher(networking: NetworkManager())
-
     
-    func makeRequest(request: Menu.Model.Request.RequestType) {
-        if service == nil {
-            service = MenuService()
-        }
-
-        switch request {
-        case .getMenu:
-            NetworkManager.shared.fetchData([ResponseModel].self, from: Link.fakeDataProducts.rawValue) { [weak self] result in
-                switch result {
-                case .success(let items):
-                    self?.items = items
-                    let response = Menu.Model.Response(response: items)
-                    self?.presenter?.presentData(response: response)
-                case .failure(let error):
-                    print(error.localizedDescription)
-                }
+    func fetchItems(){
+     
+        NetworkManager.shared.fetchData([ResponseModel].self,
+                                        from: Link.fakeDataProducts.rawValue) { [weak self] result in
+            switch result {
+            case .success(let items):
+                self?.items = items
+                let response = Menu.Model.Response(response: items)
+                self?.presenter?.presentData(response: response)
+            case .failure(let error):
+                print(error)
             }
         }
     }
