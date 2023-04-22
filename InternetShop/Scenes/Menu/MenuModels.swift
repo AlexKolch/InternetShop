@@ -10,17 +10,6 @@ import UIKit
 
 typealias MenuCellViewModel = Menu.Model.ViewModel.ViewModelData
 
-//protocol MenuCellViewModelProtocol {
-//    init(response: ResponseModel)
-//    var identifier: String { get }
-//    var height: Double { get }
-//    var name: String { get }
-//    var description: String { get }
-//    var imageURL: URL { get }
-//    var price: Double { get }
-//    var category: String { get }
-//}
-
 enum Menu {
     enum Model {
 
@@ -32,7 +21,7 @@ enum Menu {
 
         struct Response {
             enum ResponseType {
-                case presentResponse(response: [WelcomeElement])
+                case presentResponse(response: [MenuItem])
             }
         }
 

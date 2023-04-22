@@ -16,6 +16,7 @@ class MenuInteractor: MenuBusinessLogic {
 
     var presenter: MenuPresentationLogic?
     var service: MenuService?
+
     private var fetcher: DataFetcher = NetworkDataFetcher(networking: NetworkManager())
 
     

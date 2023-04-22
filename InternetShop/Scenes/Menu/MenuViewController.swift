@@ -89,7 +89,7 @@ class MenuViewController: UIViewController, MenuDisplayLogic {
         let navBarAppearance = UINavigationBarAppearance()
         navBarAppearance.configureWithOpaqueBackground()
         navBarAppearance.backgroundColor = .systemGray6
-        let title = UIBarButtonItem(title: "Moscow")
+        let title = UIBarButtonItem(title: "London")
         let image = UIBarButtonItem(title: "", image: UIImage(systemName: "chevron.down"), target: self, action: #selector(switchCity))
         navigationItem.leftBarButtonItems = [title, image]
         navigationController?.navigationBar.standardAppearance = navBarAppearance

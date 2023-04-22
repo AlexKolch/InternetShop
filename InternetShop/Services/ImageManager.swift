@@ -13,12 +13,12 @@ static let shared: WebImageManager = .init()
 
     /// Получить изображение и закэшировать
     func set(imageUrl: String) {
-        guard let url = URL(string: imageUrl) else {return}
-//        guard let url = imageUrl else {return}
-        if let cashedResponse = URLCache.shared.cachedResponse(for: URLRequest(url: url)) {
-            self.image = UIImage(data: cashedResponse.data)
-            return
-        }
+            guard let url = URL(string: imageUrl) else {return}
+            if let cashedResponse = URLCache.shared.cachedResponse(for: URLRequest(url: url)) {
+                DispatchQueue.main.async {
+                    self.image = UIImage(data: cashedResponse.data)
+                }
+            }
 
         let dataTask = URLSession.shared.dataTask(with: url) { [weak self] (data, response, error) in
             DispatchQueue.main.async {

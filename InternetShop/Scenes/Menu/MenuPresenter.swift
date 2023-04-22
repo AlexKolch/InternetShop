@@ -17,9 +17,9 @@ class MenuPresenter: MenuPresentationLogic {
 
     func presentData(response: Menu.Model.Response.ResponseType) {
         switch response {
-        case .presentResponse(let menu):
-            let cells = menu.map { responseItem in
-                cellViewModel(from: responseItem)
+        case .presentResponse(let menuItems):
+            let cells = menuItems.map { responseItem in
+                configureCellViewModel(from: responseItem)
             }
             let menuViewModel = MenuViewModel(cells: cells)
             viewController?.displayData(viewModel: MenuCellViewModel.displayMenu(menuViewModel: menuViewModel))
@@ -27,7 +27,13 @@ class MenuPresenter: MenuPresentationLogic {
     }
 
 
-    private func cellViewModel(from responseModel: WelcomeElement) -> MenuViewModel.Cell {
-        return MenuViewModel.Cell(identifier: String(responseModel.id), height: 150, name: responseModel.title, description: responseModel.description, imageURL: responseModel.image, price: responseModel.price, category: responseModel.category.rawValue)
+    private func configureCellViewModel(from response: MenuItem) -> MenuViewModel.Cell {
+        return MenuViewModel.Cell(identifier: String(response.id),
+                                  height: 150,
+                                  name: response.title,
+                                  description: response.description,
+                                  imageURL: response.image,
+                                  price: response.price,
+                                  category: response.category.rawValue)
     }
 }
