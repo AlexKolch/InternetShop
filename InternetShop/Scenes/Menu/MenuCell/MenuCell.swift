@@ -28,7 +28,7 @@ class MenuCell: UITableViewCell {
         return imageView
     }()
 
-    private lazy var activityIndicator: UIActivityIndicatorView = {
+     lazy var activityIndicator: UIActivityIndicatorView = {
         let activityIndicatorView = UIActivityIndicatorView()
         activityIndicatorView.translatesAutoresizingMaskIntoConstraints = false
         activityIndicatorView.hidesWhenStopped = true
