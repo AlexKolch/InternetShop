@@ -10,7 +10,6 @@
 		FC49352829EED8E200FC1428 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC49352729EED8E200FC1428 /* AppDelegate.swift */; };
 		FC49352A29EED8E200FC1428 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC49352929EED8E200FC1428 /* SceneDelegate.swift */; };
 		FC49352C29EED8E200FC1428 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC49352B29EED8E200FC1428 /* ViewController.swift */; };
-		FC49352F29EED8E200FC1428 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC49352D29EED8E200FC1428 /* Main.storyboard */; };
 		FC49353129EED8E300FC1428 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC49353029EED8E300FC1428 /* Assets.xcassets */; };
 		FC49353429EED8E300FC1428 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC49353229EED8E300FC1428 /* LaunchScreen.storyboard */; };
 		FC49354329EED9E800FC1428 /* MenuPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC49353C29EED9E800FC1428 /* MenuPresenter.swift */; };
@@ -19,7 +18,20 @@
 		FC49354629EED9E800FC1428 /* MenuModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC49353F29EED9E800FC1428 /* MenuModels.swift */; };
 		FC49354729EED9E800FC1428 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC49354029EED9E800FC1428 /* MenuViewController.swift */; };
 		FC49354829EED9E800FC1428 /* MenuInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC49354129EED9E800FC1428 /* MenuInteractor.swift */; };
-		FC49354929EED9E800FC1428 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC49354229EED9E800FC1428 /* MenuViewController.xib */; };
+		FC49354C29EEDD9900FC1428 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC49354B29EEDD9900FC1428 /* TabBarController.swift */; };
+		FC49354E29EEDF9F00FC1428 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC49354D29EEDF9F00FC1428 /* ContactsViewController.swift */; };
+		FC49355029EEDFB400FC1428 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC49354F29EEDFB400FC1428 /* ProfileViewController.swift */; };
+		FC49355229EEDFD300FC1428 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC49355129EEDFD300FC1428 /* CartViewController.swift */; };
+		FC49355529EEEFA000FC1428 /* CategoryTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC49355429EEEFA000FC1428 /* CategoryTableViewHeader.swift */; };
+		FC49355929EFE84B00FC1428 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC49355829EFE84B00FC1428 /* MenuCell.swift */; };
+		FC49356029EFEE9500FC1428 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC49355F29EFEE9500FC1428 /* MenuItem.swift */; };
+		FC49356329EFEF5200FC1428 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC49356229EFEF5200FC1428 /* Category.swift */; };
+		FC49356629EFF01A00FC1428 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC49356529EFF01A00FC1428 /* NetworkManager.swift */; };
+		FC49356929EFFCBC00FC1428 /* NetworkDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC49356829EFFCBC00FC1428 /* NetworkDataFetcher.swift */; };
+		FC49356B29F0150F00FC1428 /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC49356A29F0150F00FC1428 /* Banner.swift */; };
+		FC49356D29F03E9500FC1428 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC49356C29F03E9500FC1428 /* ImageManager.swift */; };
+		FC9533EF29F1242B009C4DDA /* BannerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9533EE29F1242B009C4DDA /* BannerTableViewCell.swift */; };
+		FC9533F129F1294A009C4DDA /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9533F029F1294A009C4DDA /* ImageCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +39,6 @@
 		FC49352729EED8E200FC1428 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC49352929EED8E200FC1428 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		FC49352B29EED8E200FC1428 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FC49352E29EED8E200FC1428 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FC49353029EED8E300FC1428 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC49353329EED8E300FC1428 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC49353529EED8E300FC1428 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -37,7 +48,20 @@
 		FC49353F29EED9E800FC1428 /* MenuModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuModels.swift; sourceTree = "<group>"; };
 		FC49354029EED9E800FC1428 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		FC49354129EED9E800FC1428 /* MenuInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuInteractor.swift; sourceTree = "<group>"; };
-		FC49354229EED9E800FC1428 /* MenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
+		FC49354B29EEDD9900FC1428 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		FC49354D29EEDF9F00FC1428 /* ContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
+		FC49354F29EEDFB400FC1428 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		FC49355129EEDFD300FC1428 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		FC49355429EEEFA000FC1428 /* CategoryTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewHeader.swift; sourceTree = "<group>"; };
+		FC49355829EFE84B00FC1428 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
+		FC49355F29EFEE9500FC1428 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
+		FC49356229EFEF5200FC1428 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		FC49356529EFF01A00FC1428 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		FC49356829EFFCBC00FC1428 /* NetworkDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcher.swift; sourceTree = "<group>"; };
+		FC49356A29F0150F00FC1428 /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
+		FC49356C29F03E9500FC1428 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
+		FC9533EE29F1242B009C4DDA /* BannerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerTableViewCell.swift; sourceTree = "<group>"; };
+		FC9533F029F1294A009C4DDA /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,9 +95,10 @@
 			isa = PBXGroup;
 			children = (
 				FC49354A29EED9F900FC1428 /* App */,
-				FC49353B29EED9AD00FC1428 /* Menu */,
+				FC49356429EFEFAA00FC1428 /* Services */,
+				FC49356129EFEE9A00FC1428 /* Model */,
+				FC49355A29EFEC8E00FC1428 /* Scenes */,
 				FC49352B29EED8E200FC1428 /* ViewController.swift */,
-				FC49352D29EED8E200FC1428 /* Main.storyboard */,
 				FC49353029EED8E300FC1428 /* Assets.xcassets */,
 				FC49353229EED8E300FC1428 /* LaunchScreen.storyboard */,
 				FC49353529EED8E300FC1428 /* Info.plist */,
@@ -84,13 +109,15 @@
 		FC49353B29EED9AD00FC1428 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
+				FC9533EC29F08042009C4DDA /* BannerCell */,
+				FC49355329EEEE5D00FC1428 /* CategoriesHeader */,
+				FC9533ED29F0806B009C4DDA /* MenuCell */,
 				FC49354029EED9E800FC1428 /* MenuViewController.swift */,
 				FC49354129EED9E800FC1428 /* MenuInteractor.swift */,
 				FC49353C29EED9E800FC1428 /* MenuPresenter.swift */,
 				FC49353F29EED9E800FC1428 /* MenuModels.swift */,
 				FC49353D29EED9E800FC1428 /* MenuWorker.swift */,
 				FC49353E29EED9E800FC1428 /* MenuRouter.swift */,
-				FC49354229EED9E800FC1428 /* MenuViewController.xib */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -102,6 +129,103 @@
 				FC49352929EED8E200FC1428 /* SceneDelegate.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		FC49355329EEEE5D00FC1428 /* CategoriesHeader */ = {
+			isa = PBXGroup;
+			children = (
+				FC49355429EEEFA000FC1428 /* CategoryTableViewHeader.swift */,
+			);
+			path = CategoriesHeader;
+			sourceTree = "<group>";
+		};
+		FC49355A29EFEC8E00FC1428 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				FC49355E29EFED4A00FC1428 /* TabBar */,
+				FC49353B29EED9AD00FC1428 /* Menu */,
+				FC49355B29EFECFC00FC1428 /* Contacts */,
+				FC49355D29EFED2B00FC1428 /* Cart */,
+				FC49355C29EFED0C00FC1428 /* Profile */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		FC49355B29EFECFC00FC1428 /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				FC49354D29EEDF9F00FC1428 /* ContactsViewController.swift */,
+			);
+			path = Contacts;
+			sourceTree = "<group>";
+		};
+		FC49355C29EFED0C00FC1428 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				FC49354F29EEDFB400FC1428 /* ProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		FC49355D29EFED2B00FC1428 /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				FC49355129EEDFD300FC1428 /* CartViewController.swift */,
+			);
+			path = Cart;
+			sourceTree = "<group>";
+		};
+		FC49355E29EFED4A00FC1428 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				FC49354B29EEDD9900FC1428 /* TabBarController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		FC49356129EFEE9A00FC1428 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FC49356229EFEF5200FC1428 /* Category.swift */,
+				FC49356A29F0150F00FC1428 /* Banner.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FC49356429EFEFAA00FC1428 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				FC49356729EFFC6C00FC1428 /* Models */,
+				FC49356529EFF01A00FC1428 /* NetworkManager.swift */,
+				FC49356829EFFCBC00FC1428 /* NetworkDataFetcher.swift */,
+				FC49356C29F03E9500FC1428 /* ImageManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		FC49356729EFFC6C00FC1428 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FC49355F29EFEE9500FC1428 /* MenuItem.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FC9533EC29F08042009C4DDA /* BannerCell */ = {
+			isa = PBXGroup;
+			children = (
+				FC9533EE29F1242B009C4DDA /* BannerTableViewCell.swift */,
+				FC9533F029F1294A009C4DDA /* ImageCollectionViewCell.swift */,
+			);
+			path = BannerCell;
+			sourceTree = "<group>";
+		};
+		FC9533ED29F0806B009C4DDA /* MenuCell */ = {
+			isa = PBXGroup;
+			children = (
+				FC49355829EFE84B00FC1428 /* MenuCell.swift */,
+			);
+			path = MenuCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,8 +288,6 @@
 			files = (
 				FC49353429EED8E300FC1428 /* LaunchScreen.storyboard in Resources */,
 				FC49353129EED8E300FC1428 /* Assets.xcassets in Resources */,
-				FC49352F29EED8E200FC1428 /* Main.storyboard in Resources */,
-				FC49354929EED9E800FC1428 /* MenuViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,29 +298,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC49356629EFF01A00FC1428 /* NetworkManager.swift in Sources */,
 				FC49354829EED9E800FC1428 /* MenuInteractor.swift in Sources */,
+				FC9533F129F1294A009C4DDA /* ImageCollectionViewCell.swift in Sources */,
+				FC49354E29EEDF9F00FC1428 /* ContactsViewController.swift in Sources */,
 				FC49352C29EED8E200FC1428 /* ViewController.swift in Sources */,
+				FC49356B29F0150F00FC1428 /* Banner.swift in Sources */,
 				FC49352829EED8E200FC1428 /* AppDelegate.swift in Sources */,
+				FC49354C29EEDD9900FC1428 /* TabBarController.swift in Sources */,
 				FC49354429EED9E800FC1428 /* MenuWorker.swift in Sources */,
+				FC49356929EFFCBC00FC1428 /* NetworkDataFetcher.swift in Sources */,
+				FC49356D29F03E9500FC1428 /* ImageManager.swift in Sources */,
+				FC49355229EEDFD300FC1428 /* CartViewController.swift in Sources */,
+				FC9533EF29F1242B009C4DDA /* BannerTableViewCell.swift in Sources */,
+				FC49355029EEDFB400FC1428 /* ProfileViewController.swift in Sources */,
 				FC49352A29EED8E200FC1428 /* SceneDelegate.swift in Sources */,
 				FC49354329EED9E800FC1428 /* MenuPresenter.swift in Sources */,
+				FC49355529EEEFA000FC1428 /* CategoryTableViewHeader.swift in Sources */,
+				FC49356329EFEF5200FC1428 /* Category.swift in Sources */,
 				FC49354629EED9E800FC1428 /* MenuModels.swift in Sources */,
 				FC49354529EED9E800FC1428 /* MenuRouter.swift in Sources */,
 				FC49354729EED9E800FC1428 /* MenuViewController.swift in Sources */,
+				FC49356029EFEE9500FC1428 /* MenuItem.swift in Sources */,
+				FC49355929EFE84B00FC1428 /* MenuCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		FC49352D29EED8E200FC1428 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FC49352E29EED8E200FC1428 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		FC49353229EED8E300FC1428 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -336,10 +464,9 @@
 				INFOPLIST_FILE = InternetShop/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -365,10 +492,9 @@
 				INFOPLIST_FILE = InternetShop/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
