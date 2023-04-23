@@ -36,6 +36,7 @@ class MenuViewController: UIViewController, MenuDisplayLogic {
 
     private let header = CategoryTableViewHeader()
     let currentCategory: Category = .all
+    let menuCell = MenuCell()
 
   // MARK: Setup
   private func setup() {
@@ -59,7 +60,7 @@ class MenuViewController: UIViewController, MenuDisplayLogic {
         super.viewDidLoad()
         setup()
         view.addSubview(menuTableView)
-        //activityIndicator = showActivityIndicator(in: view)
+        activityIndicator = showActivityIndicator(in: view)
         setupConstraints()
         setupNavigationBar()
         interactor?.makeRequest(request: Menu.Model.Request.RequestType.getMenu)
