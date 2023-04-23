@@ -57,6 +57,7 @@ class MenuViewController: UIViewController, MenuDisplayLogic {
   // MARK: View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        setup()
         view.addSubview(menuTableView)
         //activityIndicator = showActivityIndicator(in: view)
         setupConstraints()
