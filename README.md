@@ -17,8 +17,6 @@
 * GCD
 
 ---
-![1](https://github.com/AlexKolch/InternetShop/blob/main/Screen/1.png)
-![2](https://github.com/AlexKolch/InternetShop/blob/main/Screen/2.png)
 ![1](https://github.com/AlexKolch/InternetShop/blob/main/Screen/1aa.png)
 ![2](https://github.com/AlexKolch/InternetShop/blob/main/Screen/2a.png)
 
