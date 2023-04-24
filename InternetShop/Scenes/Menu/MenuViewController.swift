@@ -22,7 +22,7 @@ class MenuViewController: UIViewController, MenuDisplayLogic {
         tableView.register(MenuCell.self, forCellReuseIdentifier: MenuCell.identifier)
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.separatorStyle = .singleLine
+        tableView.separatorStyle = .none
         tableView.backgroundColor = .systemGray6
         return tableView
     }()
