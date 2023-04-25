@@ -8,9 +8,6 @@
 import UIKit
 
 final class WebImageManager: UIImageView {
-    /// Синглтон для работы с изображениями
-static let shared: WebImageManager = .init()
-
     /// Получить изображение и закэшировать
     func set(imageUrl: String) {
             guard let url = URL(string: imageUrl) else {return}

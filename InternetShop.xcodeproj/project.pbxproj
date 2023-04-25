@@ -31,6 +31,12 @@
 		FC49356D29F03E9500FC1428 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC49356C29F03E9500FC1428 /* ImageManager.swift */; };
 		FC9533EF29F1242B009C4DDA /* BannerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9533EE29F1242B009C4DDA /* BannerTableViewCell.swift */; };
 		FC9533F129F1294A009C4DDA /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9533F029F1294A009C4DDA /* ImageCollectionViewCell.swift */; };
+		FCBA8CDC29F6880600509439 /* ItemDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBA8CD629F6880600509439 /* ItemDetailsPresenter.swift */; };
+		FCBA8CDD29F6880600509439 /* ItemDetailsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBA8CD729F6880600509439 /* ItemDetailsWorker.swift */; };
+		FCBA8CDE29F6880600509439 /* ItemDetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBA8CD829F6880600509439 /* ItemDetailsRouter.swift */; };
+		FCBA8CDF29F6880600509439 /* ItemDetailsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBA8CD929F6880600509439 /* ItemDetailsModels.swift */; };
+		FCBA8CE029F6880600509439 /* ItemDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBA8CDA29F6880600509439 /* ItemDetailsViewController.swift */; };
+		FCBA8CE129F6880600509439 /* ItemDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBA8CDB29F6880600509439 /* ItemDetailsInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +66,12 @@
 		FC49356C29F03E9500FC1428 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		FC9533EE29F1242B009C4DDA /* BannerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerTableViewCell.swift; sourceTree = "<group>"; };
 		FC9533F029F1294A009C4DDA /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		FCBA8CD629F6880600509439 /* ItemDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsPresenter.swift; sourceTree = "<group>"; };
+		FCBA8CD729F6880600509439 /* ItemDetailsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsWorker.swift; sourceTree = "<group>"; };
+		FCBA8CD829F6880600509439 /* ItemDetailsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsRouter.swift; sourceTree = "<group>"; };
+		FCBA8CD929F6880600509439 /* ItemDetailsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsModels.swift; sourceTree = "<group>"; };
+		FCBA8CDA29F6880600509439 /* ItemDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsViewController.swift; sourceTree = "<group>"; };
+		FCBA8CDB29F6880600509439 /* ItemDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,12 +121,13 @@
 				FC9533EC29F08042009C4DDA /* BannerCell */,
 				FC49355329EEEE5D00FC1428 /* CategoriesHeader */,
 				FC9533ED29F0806B009C4DDA /* MenuCell */,
+				FCBA8CD529F687A700509439 /* DetailsView */,
 				FC49354029EED9E800FC1428 /* MenuViewController.swift */,
 				FC49354129EED9E800FC1428 /* MenuInteractor.swift */,
 				FC49353C29EED9E800FC1428 /* MenuPresenter.swift */,
+				FC49353E29EED9E800FC1428 /* MenuRouter.swift */,
 				FC49353F29EED9E800FC1428 /* MenuModels.swift */,
 				FC49353D29EED9E800FC1428 /* MenuWorker.swift */,
-				FC49353E29EED9E800FC1428 /* MenuRouter.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -217,6 +230,19 @@
 			path = MenuCell;
 			sourceTree = "<group>";
 		};
+		FCBA8CD529F687A700509439 /* DetailsView */ = {
+			isa = PBXGroup;
+			children = (
+				FCBA8CDA29F6880600509439 /* ItemDetailsViewController.swift */,
+				FCBA8CDB29F6880600509439 /* ItemDetailsInteractor.swift */,
+				FCBA8CD629F6880600509439 /* ItemDetailsPresenter.swift */,
+				FCBA8CD729F6880600509439 /* ItemDetailsWorker.swift */,
+				FCBA8CD829F6880600509439 /* ItemDetailsRouter.swift */,
+				FCBA8CD929F6880600509439 /* ItemDetailsModels.swift */,
+			);
+			path = DetailsView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -288,16 +314,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC49356629EFF01A00FC1428 /* NetworkManager.swift in Sources */,
+				FCBA8CDD29F6880600509439 /* ItemDetailsWorker.swift in Sources */,
+				FCBA8CE029F6880600509439 /* ItemDetailsViewController.swift in Sources */,
 				FC49354829EED9E800FC1428 /* MenuInteractor.swift in Sources */,
 				FC9533F129F1294A009C4DDA /* ImageCollectionViewCell.swift in Sources */,
 				FC49354E29EEDF9F00FC1428 /* ContactsViewController.swift in Sources */,
+				FCBA8CDF29F6880600509439 /* ItemDetailsModels.swift in Sources */,
 				FC49356B29F0150F00FC1428 /* Banner.swift in Sources */,
 				FC49352829EED8E200FC1428 /* AppDelegate.swift in Sources */,
+				FCBA8CDE29F6880600509439 /* ItemDetailsRouter.swift in Sources */,
 				FC49354C29EEDD9900FC1428 /* TabBarController.swift in Sources */,
 				FC49354429EED9E800FC1428 /* MenuWorker.swift in Sources */,
 				FC49356929EFFCBC00FC1428 /* NetworkDataFetcher.swift in Sources */,
 				FC49356D29F03E9500FC1428 /* ImageManager.swift in Sources */,
 				FC49355229EEDFD300FC1428 /* CartViewController.swift in Sources */,
+				FCBA8CDC29F6880600509439 /* ItemDetailsPresenter.swift in Sources */,
 				FC9533EF29F1242B009C4DDA /* BannerTableViewCell.swift in Sources */,
 				FC49355029EEDFB400FC1428 /* ProfileViewController.swift in Sources */,
 				FC49352A29EED8E200FC1428 /* SceneDelegate.swift in Sources */,
@@ -308,6 +339,7 @@
 				FC49354529EED9E800FC1428 /* MenuRouter.swift in Sources */,
 				FC49354729EED9E800FC1428 /* MenuViewController.swift in Sources */,
 				FC49356029EFEE9500FC1428 /* MenuItem.swift in Sources */,
+				FCBA8CE129F6880600509439 /* ItemDetailsInteractor.swift in Sources */,
 				FC49355929EFE84B00FC1428 /* MenuCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
