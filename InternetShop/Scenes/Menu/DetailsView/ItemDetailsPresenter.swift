@@ -10,23 +10,25 @@
 //  see http://clean-swift.com
 //
 
-import UIKit
+import Foundation
 
 protocol ItemDetailsPresentationLogic {
-    func presentShowDetails (response: ItemDetails.ShowDetails.Response.ResponseType)
+    func presentItemDetails (response: ItemDetails.ShowDetails.Response)
 }
 
 class ItemDetailsPresenter: ItemDetailsPresentationLogic {
     weak var viewController: ItemDetailsDisplayLogic?
 
-    // MARK: Do ShowDetails
 
-    func presentShowDetails (response: ItemDetails.ShowDetails.Response.ResponseType) {
-        switch response {
-        case .presentDetails(let response):
-            let itemPrice = "от \(response ?? 0)$"
-        }
-        let viewModel = ItemDetails.ShowDetails.ViewModel.ViewModelData.displayMenu(menuViewModel: response)
-        viewController?.displayShowDetails (viewModel: viewModel)
+    func presentItemDetails (response: ItemDetails.ShowDetails.Response) {
+        let itemPrice = "\(response.price ?? 0)$"
+
+        let viewModel = ItemDetails.ShowDetails.ViewModel(title: response.title ?? "",
+                                                          price: itemPrice,
+                                                          description: response.description ?? "",
+                                                          category: response.category ?? .mensClothing,
+                                                          imageURL: response.imageURL!)
+
+        viewController?.displayShowDetails(viewModel: viewModel)
     }
 }

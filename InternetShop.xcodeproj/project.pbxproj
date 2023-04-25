@@ -125,9 +125,9 @@
 				FC49354029EED9E800FC1428 /* MenuViewController.swift */,
 				FC49354129EED9E800FC1428 /* MenuInteractor.swift */,
 				FC49353C29EED9E800FC1428 /* MenuPresenter.swift */,
+				FC49353E29EED9E800FC1428 /* MenuRouter.swift */,
 				FC49353F29EED9E800FC1428 /* MenuModels.swift */,
 				FC49353D29EED9E800FC1428 /* MenuWorker.swift */,
-				FC49353E29EED9E800FC1428 /* MenuRouter.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";

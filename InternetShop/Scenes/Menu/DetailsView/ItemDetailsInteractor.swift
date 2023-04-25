@@ -11,7 +11,7 @@
 //
 
 protocol ItemDetailsBusinessLogic {
-    func doShowDetails(request: ItemDetails.ShowDetails.Request.RequestType)
+    func provideItemDetails(request: RequestDetail)
 }
 
 protocol ItemDetailsDataStore {
@@ -22,19 +22,18 @@ class ItemDetailsInteractor: ItemDetailsBusinessLogic, ItemDetailsDataStore {
     var item: MenuItem?
     var presenter: ItemDetailsPresentationLogic?
     var worker: ItemDetailsWorker?
-    private var fetcher: DataFetcher = NetworkDataFetcher(networking: NetworkManager())
 
 
-    // MARK: Do ShowDetails
-    func doShowDetails(request: ItemDetails.ShowDetails.Request.RequestType) {
-        worker = ItemDetailsWorker()
-
+    func provideItemDetails(request: RequestDetail) {
         switch request {
         case .getDetails:
-            fetcher.getData { response in
-                guard let response = response else { return }
-                presenter?.presentShowDetails(response: response)
-            }
+            let response = ItemDetails.ShowDetails.Response(title: item?.title,
+                                                            price: item?.price,
+                                                            description: item?.description,
+                                                            category: item?.category,
+                                                            imageURL: item?.image)
+
+            presenter?.presentItemDetails(response: response)
         }
     }
 }

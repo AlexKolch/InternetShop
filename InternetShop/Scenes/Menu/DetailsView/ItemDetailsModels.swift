@@ -12,24 +12,31 @@
 
 import UIKit
 
-enum ItemDetails {
+typealias RequestDetail = ItemDetails.ShowDetails.Request.RequestType
 
+enum ItemDetails {
     enum ShowDetails  {
+        
         struct Request {
             enum RequestType {
                 case getDetails
             }
         }
+
         struct Response {
-            enum ResponseType {
-                case presentDetails(response: [MenuItem])
-                
-            }
+            let title: String?
+            let price: Double?
+            let description: String?
+            let category: Category?
+            let imageURL: String?
         }
+
         struct ViewModel {
-            enum ViewModelData {
-                case displayDetails(menuViewModel: MenuViewModel)
-            }
+            let title: String
+            let price: String
+            let description: String
+            let category: Category
+            let imageURL: String
         }
     }
 }

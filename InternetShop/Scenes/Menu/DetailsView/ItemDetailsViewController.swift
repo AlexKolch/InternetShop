@@ -17,9 +17,48 @@ protocol ItemDetailsDisplayLogic: AnyObject {
 }
 
 class ItemDetailsViewController: UIViewController, ItemDetailsDisplayLogic {
-
     var interactor: ItemDetailsBusinessLogic?
     var router: (NSObjectProtocol & ItemDetailsRoutingLogic & ItemDetailsDataPassing)?
+    
+    // MARK: Properties
+    private var itemImageView: WebImageManager = {
+        let imageView = WebImageManager()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+
+    private var activityIndicatorView: UIActivityIndicatorView = {
+        let activityIndicatorView = UIActivityIndicatorView()
+        activityIndicatorView.translatesAutoresizingMaskIntoConstraints = false
+        activityIndicatorView.hidesWhenStopped = true
+        return activityIndicatorView
+    }()
+
+    private var itemTitleLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+
+        return label
+    }()
+
+    private var itemDescriptionLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.textAlignment = .justified
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+
+    private var itemPriceButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.titleLabel?.font = .systemFont(ofSize: 24)
+        button.setTitleColor(.systemPink, for: .normal)
+        return button
+    }()
 
     // MARK: Object lifecycle
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -46,25 +85,62 @@ class ItemDetailsViewController: UIViewController, ItemDetailsDisplayLogic {
         router.dataStore = interactor
     }
 
-    // MARK: Routing
-
-
     // MARK: View lifecycle
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        setup()
-        doShowDetails()
+        view.backgroundColor = .white
+        activityIndicatorView.startAnimating()
+        addSubviews()
+        setConstraints()
+        doRequestDetails()
     }
 
-
-    func doShowDetails() {
+    func doRequestDetails() {
         let request = ItemDetails.ShowDetails.Request.RequestType.getDetails
-        interactor?.doShowDetails(request: request)
+        interactor?.provideItemDetails(request: request)
     }
 
-    func displayShowDetails (viewModel: ItemDetails.ShowDetails.ViewModel) {
+    func displayShowDetails(viewModel: ItemDetails.ShowDetails.ViewModel) {
+        itemImageView.set(imageUrl: viewModel.imageURL)
+        itemTitleLabel.text = viewModel.title
+        itemDescriptionLabel.text = viewModel.description
+        itemPriceButton.setTitle(viewModel.price, for: .normal)
+        activityIndicatorView.stopAnimating()
+    }
+}
 
+extension ItemDetailsViewController {
+
+    private func addSubviews() {
+        view.addSubview(itemImageView)
+        itemImageView.addSubview(activityIndicatorView)
+        view.addSubview(itemTitleLabel)
+        view.addSubview(itemDescriptionLabel)
+        view.addSubview(itemPriceButton)
     }
 
+    private func setConstraints() {
+        NSLayoutConstraint.activate([
+            itemImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 15),
+            itemImageView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            itemImageView.widthAnchor.constraint(equalToConstant: 150),
+            itemImageView.heightAnchor.constraint(equalToConstant: 150),
+
+            activityIndicatorView.centerXAnchor.constraint(equalTo: itemImageView.centerXAnchor),
+            activityIndicatorView.centerYAnchor.constraint(equalTo: itemImageView.centerYAnchor),
+
+            itemTitleLabel.topAnchor.constraint(equalTo: itemImageView.bottomAnchor, constant: 15),
+            itemTitleLabel.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            itemTitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
+            itemTitleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
+
+            itemDescriptionLabel.topAnchor.constraint(equalTo: itemTitleLabel.bottomAnchor, constant: 15),
+            itemDescriptionLabel.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            itemDescriptionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
+            itemDescriptionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
+
+            itemPriceButton.topAnchor.constraint(equalTo: itemDescriptionLabel.bottomAnchor, constant: 15),
+            itemPriceButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -26)
+        ])
+    }
 }
