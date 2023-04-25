@@ -28,32 +28,29 @@ class MenuViewController: UIViewController, MenuDisplayLogic {
     }()
 
     var interactor: MenuBusinessLogic?
-    var router: (NSObjectProtocol & MenuRoutingLogic)?
+    var router: (NSObjectProtocol & MenuRoutingLogic & MenuDataPassing)?
 
-    private var activityIndicator: UIActivityIndicatorView?
-    ///Модель данных menu
-    private var menuViewModel = MenuViewModel(cells: [])
-
-    private let header = CategoryTableViewHeader()
     let currentCategory: Category = .all
     let menuCell = MenuCell()
 
-  // MARK: Setup
-  private func setup() {
-    let viewController        = self
-    let interactor            = MenuInteractor()
-    let presenter             = MenuPresenter()
-    let router                = MenuRouter()
-    viewController.interactor = interactor
-    viewController.router     = router
-    interactor.presenter      = presenter
-    presenter.viewController  = viewController
-    router.viewController     = viewController
-  }
-  
-  // MARK: Routing
-  
+    private var activityIndicator: UIActivityIndicatorView?
+    private var menuViewModel = MenuViewModel(cells: [])  ///Модель данных menu
+    private let header = CategoryTableViewHeader()
 
+
+  // MARK: Setup
+    private func setup() {
+        let viewController        = self
+        let interactor            = MenuInteractor()
+        let presenter             = MenuPresenter()
+        let router                = MenuRouter()
+        viewController.interactor = interactor
+        viewController.router     = router
+        interactor.presenter      = presenter
+        presenter.viewController  = viewController
+        router.viewController     = viewController
+        router.dataStore          = interactor
+    }
   
   // MARK: View lifecycle
     override func viewDidLoad() {
@@ -65,6 +62,7 @@ class MenuViewController: UIViewController, MenuDisplayLogic {
         setupNavigationBar()
         interactor?.makeRequest(request: Menu.Model.Request.RequestType.getMenu)
     }
+
     // MARK: - Method
     func displayData(viewModel: Menu.Model.ViewModel.ViewModelData) {
         switch viewModel {
@@ -99,7 +97,6 @@ class MenuViewController: UIViewController, MenuDisplayLogic {
     }
 
     @objc func switchCity() {
-
     }
 
     private func setupConstraints() {
@@ -152,8 +149,7 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
 
-    func tableView(_ tableView: UITableView,
-                   heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         switch section {
         case 0: return 0
         default: return 50
@@ -166,19 +162,18 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
         default: return menuViewModel.cells[indexPath.row].height
         }
     }
-
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section {
         case 0:
-            tableView.deselectRow(at: indexPath, animated: true)
+            tableView.deselectRow(at: indexPath, animated: false)
         default:
             tableView.deselectRow(at: indexPath, animated: true)
-            
+            router?.routeToItemDetails(value: indexPath.row)
         }
     }
 
-    func tableView(_ tableView: UITableView,
-                    heightForFooterInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return .zero
     }
 }
